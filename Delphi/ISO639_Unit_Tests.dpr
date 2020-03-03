@@ -51,6 +51,9 @@ begin
     if not results.AllPassed then
       System.ExitCode := EXIT_ERRORS;
 
+    TDUnitX.Options.ShowUsage := True;
+    TDUnitX.Options.LogLevel := TLogLevel.Information;
+
     {$IFNDEF CI}
     //We don't want this happening when running under CI.
     if TDUnitX.Options.ExitBehavior = TDUnitXExitBehavior.Pause then
