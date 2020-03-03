@@ -16,7 +16,7 @@ uses
 begin
   try
     TRegisterServices.RegisterServices;
-    var a := GlobalContainer.Resolve<IISO639_1_Locator_Service>;
+    var a := GlobalContainer.Resolve<IISO639_1_Locator_Service>('Turrican');
     var c := a.ISO639_1ToLangName('ab');
   except
     on E: Exception do
