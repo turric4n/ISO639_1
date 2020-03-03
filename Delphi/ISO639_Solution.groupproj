@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{11C226F3-7214-4A07-BEFA-A05A69D3BB68}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ISO639_1.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ISO639_Unit_Tests.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ISO639_1">
+        <MSBuild Projects="ISO639_1.dproj"/>
+    </Target>
+    <Target Name="ISO639_1:Clean">
+        <MSBuild Projects="ISO639_1.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ISO639_1:Make">
+        <MSBuild Projects="ISO639_1.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ISO639_Unit_Tests">
+        <MSBuild Projects="ISO639_Unit_Tests.dproj"/>
+    </Target>
+    <Target Name="ISO639_Unit_Tests:Clean">
+        <MSBuild Projects="ISO639_Unit_Tests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ISO639_Unit_Tests:Make">
+        <MSBuild Projects="ISO639_Unit_Tests.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ISO639_1;ISO639_Unit_Tests"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ISO639_1:Clean;ISO639_Unit_Tests:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ISO639_1:Make;ISO639_Unit_Tests:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
